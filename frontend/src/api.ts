@@ -1,6 +1,6 @@
 import { EventPlan, HealthInfo, BudgetItem, Task, Vendor, Guest } from './types';
 
-const BASE_URL = '/api';
+const BASE_URL = (import.meta.env.VITE_API_URL || '/api').replace(/\/$/, '');
 
 async function request<T>(endpoint: string, options: RequestInit = {}): Promise<T> {
   const headers = {
